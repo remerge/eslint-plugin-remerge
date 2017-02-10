@@ -6,7 +6,10 @@ module.exports.rules = {
 
       if (functionBeingCalledIsGet && firstArgumentIsThis) {
         context.report({
-          node,
+          loc: {
+            start: node.callee.loc.start,
+            end: node.arguments[0].loc.end,
+          },
           message: "Don't use `get(this, ...)`, use `this.get(...)` instead",
         });
       }
