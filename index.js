@@ -1,18 +1,5 @@
-module.exports.rules = {
-  "no-get-this": (context) => ({
-    CallExpression(node) {
-      const functionBeingCalledIsGet = node.callee.name === 'get';
-      const firstArgumentIsThis = node.arguments.length > 0 && node.arguments[0].type === 'ThisExpression';
+const noGetThis = require('./lib/rules/no-get-this');
 
-      if (functionBeingCalledIsGet && firstArgumentIsThis) {
-        context.report({
-          loc: {
-            start: node.callee.loc.start,
-            end: node.arguments[0].loc.end,
-          },
-          message: "Don't use `get(this, ...)`, use `this.get(...)` instead",
-        });
-      }
-    },
-  }),
+module.exports.rules = {
+  "no-get-this": noGetThis,
 };
