@@ -1,7 +1,3 @@
-# eslint-plugin-foo
-
-bar
-
 ## Installation
 
 You'll first need to install [ESLint](http://eslint.org):
