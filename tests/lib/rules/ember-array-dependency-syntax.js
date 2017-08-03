@@ -18,8 +18,8 @@ var ruleTester = new RuleTester();
 ruleTester.run("ember-array-dependency-syntax", rule, {
 
     valid: [
-        "computed('foos.[]', (foos))",
-        "computed('foos.[]', 'bars.[]', (foos))",
+        "computed('foos.[]', function() {})",
+        "computed('foos.[]', 'bars.[]', function() {})",
         "computed(function() {})",
         "computed()",
     ],
